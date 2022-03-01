@@ -1,6 +1,6 @@
-import python_module_dongbin2
+import module_dongbin2
 
-print(python_module_dongbin2.add(3, 7))
+print(module_dongbin2.add(3, 7))
 
 
 #모듈이 너무 커서 특정 함수만 가져오고 싶은 경우에는
