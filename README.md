@@ -1,3 +1,3 @@
 # PythonPractice
 
-This is repository for practicing Python.
+This is the repository for practicing Python.
