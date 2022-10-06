@@ -17,3 +17,14 @@ def writecsv(filename, the_list):
         a = csv.writer(f, delimiter = ',')
         a.writerows(the_list)
 # writecsv() 함수에서는 with 문을 사용해 코드 길이가 조금 더 짧습니다.
+
+def switch(listName):
+    for i in listName:
+        for j in i:
+            try:
+                i[i.index(j)] = float(re.sub(',', '', j))
+            except:
+                pass
+    return listName
+
+    
