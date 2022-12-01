@@ -1,15 +1,23 @@
-def add(a, b):
-    return a + b
+class Cal:
 
-def sub(a, b):
-    return a - b
+    #생성자 : 메모리에 올라오는 순간 즉시 실행됩니다.
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    
+    def add(self):
+        return self.a + self.b
 
-def mul(a, b):
-    return a * b
+    def sub(self):
+        return self.a - self.b
 
-def div(a, b):
-    return a/b
+    def mul(self):
+        return self.a * self.b
 
-print(add(1, 2))
-print(sub(1, 2))
-print(mul(1, 2))
+    def div(self):
+        return self.a/self.b
+
+cal1 = Cal(1, 2)
+# cal1은 self가 가르키게 됨
+# 1은 a가 가르키게 됨
+# 2는 b가 가르키게 됨
