@@ -19,5 +19,10 @@ class Cal:
 
 cal1 = Cal(1, 2)
 # cal1은 self가 가르키게 됨
+
 # 1은 a가 가르키게 됨
 # 2는 b가 가르키게 됨
+
+print(cal1.a)
+print(cal1.b)
+print(cal1.add())
