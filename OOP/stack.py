@@ -15,10 +15,10 @@
 
 class Node:
     def __init__(self, node):
-        self.node
+        self.node == node
 
     def item():
-        
+        pass
 
     def pointer():
         self.node = self.node + 1
@@ -27,7 +27,11 @@ class Node:
             self.node = None
 
 class LinkedList:
-    pass
+    int length = len(self.node)
 
 class Stack(LinkedList):
-    pass
+    def Push(item):
+        item = self.node
+
+    def pop():
+        pass
