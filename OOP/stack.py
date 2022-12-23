@@ -13,25 +13,76 @@
 # - Push(item) : Stack 자료구조에 item을 받아 노드로 만든 다음 밀어넣는다.
 # - pop() : Stack 자료구조에서 마지막 node를 제거하고 해당 Item을 반환한다.
 
-class Node:
-    def __init__(self, node):
-        self.node == node
+from typing import Optional, Generic, TypeVar
 
-    def item():
-        pass
+T = TypeVar("T")
 
-    def pointer():
-        self.node = self.node + 1
+class Node(Generic[T]):
+    def __init__(self, item: T, pointer: Optional["Node"] = None):
+        self.item = item
+        self.pointer = pointer
 
-        if self.node == 0:
-            self.node = None
+class LinkedList(Generic[T]):
+    def __init__(self):
+        self.head: Optional[Node[T]] = None
 
-class LinkedList:
-    int length = len(self.node)
+    @property
+    def length(self) -> int:
+        if self.head is None:
+            return 0
+        cur_node = self.head
+        count: int = 1
+        while cur_node.pointer is not None:
+            cur_node = cur_node.pointer
+            count += 1
+        return count
 
-class Stack(LinkedList):
-    def Push(item):
-        item = self.node
+    def __str__(self) -> str:
+        result: str = ""
+        if self.head is None:
+            return result
+        cur_node = self.head
+        result += f"{cur_node.item}"
+        while cur_node.pointer is not None:
+            cur_node = cur_node.pointer
+            result += f", {cur_node.item}"
+        return result
 
-    def pop():
-        pass
+class Stack(Generic[T], LinkedList[T]):
+    def push(self, item: T) -> None:
+        new_node: Node[T] = Node[T](item=item)
+        if self.head is None:
+            self.head = new_node
+            return
+        cur_node = self.head
+        while cur_node.pointer is not None:
+            cur_node = cur_node.pointer
+        cur_node.pointer = new_node
+
+    def pop(self) -> T:
+        if self.head is None:
+            raise ValueError("stack is empty")
+        cur_node = self.head
+        if cur_node.pointer is None:
+            self.head = None
+            return cur_node.item
+        while cur_node.pointer.pointer is not None:
+            cur_node = cur_node.pointer
+        result = cur_node.pointer
+        cur_node.pointer = None
+        return result.item
+
+    if __name__ == "__main__":
+    stack = Stack[int]()
+    stack.push(12)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.pop())
+
+    print(stack.length)
+    print(stack)
