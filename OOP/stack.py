@@ -72,7 +72,29 @@ class Stack(Generic[T], LinkedList[T]):
         cur_node.pointer = None
         return result.item
 
-    if __name__ == "__main__":
+class Queue(Generic[T], LinkedList[T]):
+    def enqueue(self, item: T) -> None:
+        new_node: Node[T] = Node[T](item=item)
+        if self.head is None:
+            self.head = new_node
+            return
+        cur_node = self.head
+        while cur_node.pointer is not None:
+            cur_node = cur_node.pointer
+        cur_node.pointer = new_node
+
+    def dequeue(self) -> T:
+        if self.head is None:
+            raise ValueError("queue is empty")
+        cur_node = self.head
+        if cur_node.pointer is None:
+            self.head = None
+            return cur_node.item
+        result = cur_node.item
+        self.head = cur_node.pointer
+        return result
+        
+if __name__ == "__main__":
     stack = Stack[int]()
     stack.push(12)
     stack.push(2)
@@ -86,3 +108,18 @@ class Stack(Generic[T], LinkedList[T]):
 
     print(stack.length)
     print(stack)
+
+    queue = Queue[int]()
+    queue.enqueue(12)
+    queue.enqueue(1)
+    queue.enqueue(13)
+    queue.enqueue(16)
+
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+
+    print(queue)
+    print(queue.length)
