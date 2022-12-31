@@ -34,7 +34,7 @@ class Car(object):
 
     # Instance Method
     def get_price(self):
-        return 'Befor Car Price -> company : {}, price : {}'.format(self._company, self._details.get('price'))
+        return 'Before Car Price -> company : {}, price : {}'.format(self._company, self._details.get('price'))
 
     # Instance Method
     def get_price_culc(self):
