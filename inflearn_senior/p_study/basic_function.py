@@ -137,3 +137,11 @@ def add(a, b):
 
 print(add(10, 20))
 
+def minus(a, b):
+    return a - b
+
+def div(a, b):
+    return a / b
+
+def mul(a, b):
+    return a * b
