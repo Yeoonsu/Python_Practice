@@ -1,3 +1,7 @@
+# https://www.youtube.com/watch?v=nhT56blfRpE
+# Genetic Algorithm from Scratch in Python (tutorial with code)
+# https://github.com/kiecodes/genetic-algorithms
+
 from collections import namedtuple
 from random import choices
 from typing import List, Callable
